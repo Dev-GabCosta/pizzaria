@@ -18,7 +18,7 @@ public class CustomerService {
 
 	public CustomerDto createClient(Customer customer) {
 		customerRepository.save(customer);
-		return new CustomerDto(customer.getName(), customer.getEmail());
+		return new CustomerDto(customer.getName(), customer.getEmail(), customer.getPhone());
 	}
 
 	public List<CustomerDto> showClients() {
@@ -26,7 +26,8 @@ public class CustomerService {
 				       .stream()
 				       .map(customer -> new CustomerDto(
 						       customer.getName(),
-						       customer.getEmail()
+						       customer.getEmail(),
+						       customer.getPhone()
 				       ))
 				       .collect(
 						       Collectors.toList()

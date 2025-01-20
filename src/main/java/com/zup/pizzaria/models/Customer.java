@@ -12,11 +12,12 @@ public class Customer {
 	private Long id;
 	private String name;
 	private String email;
+private  String  phone;
 
-
-	public Customer(String name, String email) {
+	public Customer(String name, String email, String phone) {
 		this.name = name;
 		this.email = email;
+		this.phone = phone;
 	}
 
 	public Long getId() {
@@ -43,4 +44,7 @@ public class Customer {
 		this.email = email;
 	}
 
+	public String getPhone() {
+		return  phone;
+	}
 }

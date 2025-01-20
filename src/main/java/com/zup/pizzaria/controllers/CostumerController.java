@@ -3,6 +3,7 @@ package com.zup.pizzaria.controllers;
 import com.zup.pizzaria.dtos.CustomerDto;
 import com.zup.pizzaria.models.Customer;
 import com.zup.pizzaria.services.CustomerService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class CostumerController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CustomerDto> createClient(@RequestBody Customer  customer) {
+	public ResponseEntity<CustomerDto> createClient(@Valid @RequestBody Customer  customer) {
 		CustomerDto customerDto = customerService.createClient(customer);
 		return ResponseEntity.ok(customerDto);
 	}
