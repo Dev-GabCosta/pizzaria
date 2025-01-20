@@ -6,12 +6,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
+	private String name;
 	private String email;
+
+
+	public Customer(String name, String email) {
+		this.name = name;
+		this.email = email;
+	}
 
 	public Long getId() {
 		return id;
@@ -21,12 +27,12 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -37,8 +43,4 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Cliente(String nome, String email) {
-		this.nome = nome;
-		this.email = email;
-	}
 }

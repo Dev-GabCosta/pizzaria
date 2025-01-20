@@ -1,20 +1,20 @@
 package com.zup.pizzaria.services;
 
 import com.zup.pizzaria.dtos.PedidoDTO;
-import com.zup.pizzaria.models.Cliente;
+import com.zup.pizzaria.models.Customer;
 import com.zup.pizzaria.models.Pedido;
-import com.zup.pizzaria.repository.ClienteRepository;
+import com.zup.pizzaria.repository.CustomerRepository;
 import com.zup.pizzaria.repository.PedidoRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PedidoService {
     private final PedidoRepository pedidoRepository;
-    private final ClienteRepository clienteRepository;
+    private final CustomerRepository customerRepository;
 
-    public PedidoService(PedidoRepository pedidoRepository, ClienteRepository clienteRepository) {
+    public PedidoService(PedidoRepository pedidoRepository, CustomerRepository customerRepository) {
         this.pedidoRepository = pedidoRepository;
-        this.clienteRepository = clienteRepository;
+        this.customerRepository = customerRepository;
     }
 
     public PedidoDTO criarPedido(Pedido pedido) {
@@ -22,10 +22,10 @@ public class PedidoService {
         pedidoRepository.save(pedido);
 
         // Obtenho cliente
-        Cliente cliente = clienteRepository
+        Customer customer = customerRepository
                 .findById(pedido.getClienteId())
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
-        return new PedidoDTO(cliente.getNome(), cliente.getEmail(), pedido.getDescricao());
+        return new PedidoDTO(customer.getName(), customer.getEmail(), pedido.getDescricao());
     }
 }

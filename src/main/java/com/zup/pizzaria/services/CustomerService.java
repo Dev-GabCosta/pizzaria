@@ -1,7 +1,8 @@
-package com.example.Pizzaria.services;
+package com.zup.pizzaria.services;
 
-import com.example.Pizzaria.dtos.CustomerDto;
-import com.example.Pizzaria.repositories.CustomerRepository;
+import com.zup.pizzaria.dtos.CustomerDto;
+import com.zup.pizzaria.models.Customer;
+import com.zup.pizzaria.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class CustomerService {
 		this.customerRepository = customerRepository;
 	}
 
-	public CustomerDto createClient(com.example.Pizzaria.models.Customer customer) {
+	public CustomerDto createClient(Customer customer) {
 		customerRepository.save(customer);
 		return new CustomerDto(customer.getName(), customer.getEmail());
 	}

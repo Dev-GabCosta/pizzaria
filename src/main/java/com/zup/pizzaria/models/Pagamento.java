@@ -2,7 +2,7 @@ package com.zup.pizzaria.models;
 
 import java.time.LocalDateTime;
 
-final public class Pagamento {
+final public class Pagamento {/*
 	private final long id;
 	private final long pedidoId;
 	private final String formaPagamento;
@@ -46,5 +46,5 @@ validatePayment(valorPago, valorPedido);
 		}
 
 	}
-
+*/
 }

@@ -1,4 +1,4 @@
-package com.example.Pizzaria.dtos;
+package com.zup.pizzaria.dtos;
 
 public class CustomerDto {
 	private String name;

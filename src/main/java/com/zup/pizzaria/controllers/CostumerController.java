@@ -1,8 +1,8 @@
-package com.example.Pizzaria.controllers;
+package com.zup.pizzaria.controllers;
 
-import com.example.Pizzaria.dtos.CustomerDto;
-import com.example.Pizzaria.models.Customer;
-import com.example.Pizzaria.services.CustomerService;
+import com.zup.pizzaria.dtos.CustomerDto;
+import com.zup.pizzaria.models.Customer;
+import com.zup.pizzaria.services.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,14 +18,14 @@ public class CostumerController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Customer> createClient(@RequestBodyCustomer  customer) {
+	public ResponseEntity<CustomerDto> createClient(@RequestBody Customer  customer) {
 		CustomerDto customerDto = customerService.createClient(customer);
 		return ResponseEntity.ok(customerDto);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Customer>> getAllClients() {
-		List<Customer> clients = customerService.showClients();
+	public ResponseEntity<List<CustomerDto>> getAllClients() {
+		List<CustomerDto> clients = customerService.showClients();
 		return ResponseEntity.ok(clients);
 	}
 
