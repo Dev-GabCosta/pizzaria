@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public class CustomerDto {
-@NotNull(message = "Nome é obrigatório")
+	@NotNull(message = "Nome é obrigatório")
 	private String name;
-@NotNull(message = "Email é obrigatório")
-@Email(message = "O formato do e-mail é user@email.com")
+	@NotNull(message = "Email é obrigatório")
+	@Email(message = "O formato do e-mail é user@email.com")
 	private String email;
-@NotNull(message = "O número de telefone é obrigatório")
-@Pattern(regexp = "^\\d{8}$", message = "O número de telefone deve conter 8 dígitos")
+	@NotNull(message = "O número de telefone é obrigatório")
+	@Pattern(regexp = "^\\d{8}$", message = "O número de telefone deve conter 8 dígitos")
 	private String phone;
 
 	public CustomerDto(String name, String email, String phone) {

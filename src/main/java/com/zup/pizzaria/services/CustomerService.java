@@ -16,7 +16,8 @@ public class CustomerService {
 		this.customerRepository = customerRepository;
 	}
 
-	public CustomerDto createClient(Customer customer) {
+	public CustomerDto createClient(CustomerDto customerDto) {
+		Customer customer = new Customer(customerDto.getName(), customerDto.getEmail(), customerDto.getPhone());
 		customerRepository.save(customer);
 		return new CustomerDto(customer.getName(), customer.getEmail(), customer.getPhone());
 	}
