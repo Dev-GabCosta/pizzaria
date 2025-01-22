@@ -19,13 +19,14 @@ public class CustomerService {
 	public CustomerDto createClient(CustomerDto customerDto) {
 		Customer customer = new Customer(customerDto.getName(), customerDto.getEmail(), customerDto.getPhone());
 		customerRepository.save(customer);
-		return new CustomerDto(customer.getName(), customer.getEmail(), customer.getPhone());
+		return new CustomerDto(customer.getId(), customer.getName(), customer.getEmail(), customer.getPhone());
 	}
 
 	public List<CustomerDto> showClients() {
 		return customerRepository.findAll()
 				       .stream()
 				       .map(customer -> new CustomerDto(
+						       customer.getId(),
 						       customer.getName(),
 						       customer.getEmail(),
 						       customer.getPhone()

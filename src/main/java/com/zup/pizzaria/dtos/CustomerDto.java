@@ -14,8 +14,10 @@ public class CustomerDto {
 	@NotNull(message = "O número de telefone é obrigatório")
 	@Pattern(regexp = "^\\d{8}$", message = "O número de telefone deve conter 8 dígitos")
 	private String phone;
+	private long id;
 
-	public CustomerDto(String name, String email, String phone) {
+	public CustomerDto(long id, String name, String email, String phone) {
+		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -43,5 +45,13 @@ public class CustomerDto {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

@@ -4,9 +4,11 @@ import com.zup.pizzaria.dtos.CustomerDto;
 import com.zup.pizzaria.models.Customer;
 import com.zup.pizzaria.services.CustomerService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -21,7 +23,8 @@ public class CostumerController {
 	@PostMapping
 	public ResponseEntity<CustomerDto> createClient(@Valid @RequestBody CustomerDto  customerDto) {
 		CustomerDto createdCustomer = customerService.createClient(customerDto);
-		return ResponseEntity.ok(createdCustomer);
+		URI location = URI.create(String.format("/clientes/%d", createdCustomer.getId()));
+		return ResponseEntity.created(location).body(createdCustomer);
 	}
 
 	@GetMapping
